@@ -30,7 +30,7 @@ O projeto junta duas coisas que eu amo, a gastronomia e a minha família, e cont
 
 ## Banco de dados
 
-Tabelas principais: `categoria`, `origem`, `prato`, `ingrediente`, `prato_ingrediente`, `pessoa`, `pessoa_prato`, `memoria` e `marcoHistorico`.
+Tabelas principais: `categoria`, `origem`, `prato`, `ingrediente`, `prato_ingrediente`, `pessoa` e `memoria`.
 
 ## Dashboard
 
