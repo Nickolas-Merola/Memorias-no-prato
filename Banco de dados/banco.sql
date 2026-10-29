@@ -49,7 +49,7 @@ CREATE TABLE prato_ingrediente (
 );
 
 CREATE TABLE memoria (
-    idMemoria INT PRIMARY KEY AUTO_INCREMENT,       -
+    idMemoria INT PRIMARY KEY AUTO_INCREMENT,       
     fkPrato INT,
     titulo VARCHAR(50),
     descricao VARCHAR(255),                       
