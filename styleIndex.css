@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+
+:root {
+  --vinho-escuro: #5E1A2B;
+  --vinho-medio: #8C2F3F;
+  --creme: #FAF3E8;
+  --bege: #EBDDC8;
+  --texto: #2B1B17;
+  --caramelo: #C8963E;
+}
+
+body{
+    font-family: Inter, sans-serif;/*Fonte e fonte reserva*/
+    background-color: var(--creme); /*Cor de fundo*/
+    color: var(--texto); /*Cor dos textos*/
+    margin: 0;
+}
+
+.topo{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: var(--vinho-escuro);
+    color: var(--texto);
+    padding: 30px 16px;
+}
+
+.logo{
+    font-size: 24px;
+    color: var(--creme);
+    font-weight: 700;
+    font-family: Lora, sans-serif;
+    gap: 15px;
+}
+
+.logo button{
+    background-color: transparent;
+    border: none;
+}
+
+.botoes{
+    margin-left: auto;
+    gap: 0px;
+}
+.botoes button{
+    background-color: transparent;
+    font-family: Lora, sans-serif;
+    color: var(--bege);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    overflow: hidden;
+    transition: all 0s ease;
+    margin-right: 20px;
+}
+
+
+.botoes button:hover {
+    color: var(--creme); /* Nova cor do texto (opcional) */
+    border-bottom: 2px solid var(--caramelo);
+    border-radius: 20px;
+    font-weight: 500;
+}
+
