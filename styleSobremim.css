@@ -1,5 +1,6 @@
 .apresentacao{
     color: var(--texto);
+    padding-bottom: 0px;
 }
 
 .apresentacao p{
@@ -24,16 +25,47 @@
 }
 
 .texto {
-    max-width: 700px;
+    max-width: 2000px;
 }
 
 .linha ol{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
     list-style: none;
     padding-left: 0px;
+    margin: 0;
+    border-top: 2px solid var(--bege);
+}
+
+.linha li{
+    position: relative;
+    padding-top: 24px;
+}
+
+.linha li:before{ /*Before faz uma estilização no começo daquele componente*/
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--vinho-escuro);
+    top: -8px;
+    left: 0;
+}
+
+.linha li p{
+    font-size: 15px;
+    color: var(--texto-dois);
+    margin-top: 8px;
 }
 
 h2{
     margin-bottom: 18px;
+}
+
+.cartoes{
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .cartao{
