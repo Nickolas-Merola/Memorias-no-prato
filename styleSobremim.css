@@ -1,0 +1,51 @@
+.apresentacao{
+    color: var(--texto);
+}
+
+.apresentacao p{
+    color: var(--texto-dois);
+}
+
+.foto-perfil{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    height: 400px;
+    object-position: 50% 60%;
+}
+
+.historia{
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 48px;
+    align-items: start;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.texto {
+    max-width: 700px;
+}
+
+.linha ol{
+    list-style: none;
+    padding-left: 0px;
+}
+
+h2{
+    margin-bottom: 18px;
+}
+
+.cartao{
+    border-top-color: var(--caramelo);
+    color: var(--texto);
+}
+
+.cartoes p{
+    color: var(--texto-dois);
+}
+
+.suave{
+    background-color: var(--bege);
+    color: var(--texto);
+}

@@ -1,0 +1,141 @@
+*{
+    box-sizing: border-box;
+}
+
+:root {
+  --vinho-escuro: #5E1A2B;
+  --vinho-medio: #8C2F3F;
+  --creme: #FAF3E8;
+  --bege: #EBDDC8;
+  --texto: #2B1B17;
+  --texto-dois: #6B5750;
+  --caramelo: #C8963E;
+  --creme-claro : #FFFDF9;
+}
+
+body{
+    background-color: var(--creme); /*Cor de fundo*/
+    color: var(--texto); /*Cor dos textos*/
+    margin: 0;
+    font-family: Outfit, sans-serif;
+    line-height: 1.6;
+}
+
+.topo{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: var(--vinho-escuro);
+    color: var(--creme);
+    padding: 30px 40px;
+}
+
+.logo{
+    font-size: 24px;
+    color: var(--creme);
+    font-weight: 700;
+    font-family: Lora, serif;
+    text-decoration: none;
+}
+
+.botoes{
+    display: flex;
+    margin-left: auto;
+    gap: 20px;
+    margin-right: 10px;
+    align-items: center;
+}
+.botoes a{
+    background-color: transparent;
+    font-family: Lora, serif;
+    color: var(--bege);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+
+.botoes .entrar{
+    color: var(--caramelo);
+    border: 1px solid var(--caramelo);
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.botoes a:hover {
+    border-color: var(--caramelo);
+}
+
+.cartao{
+    background-color: var(--creme-claro);
+    border: 1px solid var(--bege);
+    border-radius: 10px;
+    border-top: 4px solid var(--vinho-medio);
+    padding: 22px 24px;
+}
+
+.botoes a.ativo{
+    border-color: var(--caramelo);
+}
+
+.frase{
+    color: var(--creme);
+    font-family: Lora, serif;
+    font-size: 26px;
+    background-color: var(--vinho-escuro);
+    border-radius: 20px;
+    padding: 20px 20px;
+    max-width: none;
+    align-items: center;
+    text-align: center;
+    margin: 0 40px;
+    margin-bottom: 10px;
+}
+
+.cartoes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cartoes a{
+    text-decoration: none;
+    color: var(--vinho-escuro);
+}
+
+.sessao{
+    padding: 27px 40px;
+}
+
+p + p{ /*Um paragrafo depois do outro*/
+    margin-top: 16px;
+}
+
+h1, h2, h3{
+    font-family: Lora, serif;
+    font-weight: 600;
+    margin: 0px 0px 0px 0px;
+    line-height: 1.2;
+}
+
+h1{
+    font-size: 34px;
+}
+
+h2{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 19px;
+}
+
+.chip{
+    color: var(--vinho-escuro);
+    max-width: 500px;
+    font-size: 20px;
+    background-color: var(--bege);
+    border-radius: 50px;
+    padding: 10px 10px;
+}
