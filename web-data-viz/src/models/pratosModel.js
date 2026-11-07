@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function listar() {
-    var instrucaoSql = `SELECT p.nome as Nome, c.nome as Categoria, o.nome as Origem, p.dificuldade as Dificuldade, p.tempoPreparo as Tempo
+    var instrucaoSql = `SELECT p.idPrato as id, p.notaPessoal as nota, p.nome as nome, c.nome as categoria, o.nome as origem, p.dificuldade as dificuldade, p.tempoPreparo as tempo
     FROM prato as p
     JOIN categoria as c ON p.fkCategoria = c.idCategoria
     JOIN origem as o ON p.fkOrigem = o.idOrigem`;

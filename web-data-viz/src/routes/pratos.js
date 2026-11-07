@@ -4,7 +4,7 @@ var router = express.Router();
 var pratosController = require("../controllers/pratosController");
 
 router.get("/listar", function (req, res) {
-    avisoController.listar(req, res);
+    pratosController.listar(req, res);
 });
 
 module.exports = router

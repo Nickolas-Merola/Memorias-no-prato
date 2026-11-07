@@ -1,4 +1,4 @@
-var medidaModel = require("../models/pratosModel");
+var pratosModel = require("../models/pratosModel");
 
 function listar(req, res) {
     pratosModel.listar().then(function (resultado) {
