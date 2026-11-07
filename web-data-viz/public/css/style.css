@@ -144,3 +144,12 @@ h3{
     background-color: var(--vinho-medio);
     color: var(--bege);
 }
+
+.apresentacao{
+    color: var(--texto);
+    padding-bottom: 0px;
+}
+
+.apresentacao p{
+    color: var(--texto-dois);
+}

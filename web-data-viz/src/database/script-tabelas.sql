@@ -1,58 +1,66 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE memorias;
+USE memorias;
 
-/*
-comandos para mysql server
-*/
+CREATE TABLE categoria (
+    idCategoria INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL UNIQUE
+);
 
-CREATE DATABASE aquatech;
+CREATE TABLE origem (
+    idOrigem INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL UNIQUE
+);
 
-USE aquatech;
+CREATE TABLE pessoa (
+    idPessoa INT PRIMARY KEY AUTO_INCREMENT,
+    Apelido VARCHAR(50),
+    relacao VARCHAR(50)
+);
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+CREATE TABLE prato (
+    idPrato INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    fkCategoria INT NOT NULL,
+    fkOrigem INT NOT NULL,
+    fkPessoa INT,
+    dificuldade INT NOT NULL,                    
+    tempoPreparo INT NOT NULL,
+    notaPessoal INT NOT NULL,
+    CONSTRAINT chkDificuldade CHECK (dificuldade IN(1,2,3,4,5)),
+    CONSTRAINT chkNotaPessoal CHECK (notaPessoal IN(1,2,3,4,5)),
+    FOREIGN KEY (fkCategoria) REFERENCES categoria(idCategoria),
+    FOREIGN KEY (fkOrigem) REFERENCES origem(idOrigem),
+    FOREIGN KEY (fkPessoa) REFERENCES pessoa(idPessoa)
+);
+
+CREATE TABLE ingrediente (
+    idIngrediente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    tipo VARCHAR(50)
+);                                                  
+
+CREATE TABLE prato_ingrediente (
+    fkPrato INT,
+    fkIngrediente INT,
+    quantidade INT,
+    PRIMARY KEY(fkPrato, fkIngrediente),           
+    FOREIGN KEY (fkPrato) REFERENCES prato(idPrato),
+    FOREIGN KEY (fkIngrediente) REFERENCES ingrediente(idIngrediente)
+);
+
+CREATE TABLE memoria (
+    idMemoria INT PRIMARY KEY AUTO_INCREMENT,       
+    fkPrato INT,
+    titulo VARCHAR(50),
+    descricao VARCHAR(255),                       
+    ano YEAR,                                      
+    FOREIGN KEY (fkPrato) REFERENCES prato(idPrato)
 );
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    email VARCHAR(50) UNIQUE,                      
+    senha VARCHAR(255),                             
+    CONSTRAINT chkEmail CHECK (email LIKE '%@%')
 );
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
