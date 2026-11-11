@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar · Memória no Prato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleentrar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="topo">
+        <a href="index.html" class="logo">Memória no Prato</a>
+        <nav class="botoes">
+            <a href="index.html">Início</a>
+            <a href="sobremim.html">Sobre Mim</a>
+            <a href="pratos.html">Pratos</a>
+            <a href="pessoas.html">Pessoas</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a class="entrar ativo" href="entrar.html">Entrar</a>
+        </nav>
+    </header>
+    <main class="area-formulario">
+        <section class="cartao formulario">
+            <h1>Entrar</h1>
+            <p class="subtitulo">Entre para adicionar pratos e pessoas ao acervo.</p>
+
+            <!-- novalidate desliga a validação automática do navegador: quem valida é o entrar.js -->
+            <form id="form_entrar" novalidate>
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" autocomplete="email" placeholder="seuemail@exemplo.com">
+                    <span class="erro" id="erro_email"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" autocomplete="current-password">
+                    <span class="erro" id="erro_senha"></span>
+                </div>
+
+                <button type="submit" class="botao" id="botao_entrar">Entrar</button>
+                <div class="mensagem" id="mensagem"></div>
+            </form>
+
+            <p class="troca">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </section>
+    </main>
+    <script src="js/entrar.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* Estilo das telas de login (entrar.html) e cadastro (cadastro.html) */
+
+.area-formulario{
+    display: flex;
+    justify-content: center; /*Centraliza o cartão na horizontal*/
+    padding: 56px 40px;
+}
+
+.formulario{
+    width: 100%;
+    max-width: 440px; /*O cartão cresce até 440px e não passa disso*/
+    padding: 32px;
+}
+
+.subtitulo{
+    color: var(--texto-dois);
+    margin: 8px 0 8px 0;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column; /*Coloca label, input e mensagens um embaixo do outro*/
+    gap: 6px;
+    margin-top: 18px;
+}
+
+.campo label{
+    font-weight: 500;
+}
+
+.campo input{
+    font-family: inherit; /*Input não herda a fonte sozinho, por isso o inherit*/
+    font-size: 16px;
+    color: var(--texto);
+    background-color: var(--creme);
+    border: 1px solid var(--bege);
+    border-radius: 5px;
+    padding: 10px 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo input:focus{
+    outline: none;
+    border-color: var(--caramelo);
+    box-shadow: 0 0 0 3px rgba(200, 150, 62, 0.25); /*Caramelo transparente em volta do campo*/
+}
+
+.campo input.invalido{
+    border-color: var(--vinho-medio);
+}
+
+.dica{
+    font-size: 13px;
+    color: var(--texto-dois);
+}
+
+.erro{
+    font-size: 14px;
+    color: var(--vinho-medio);
+}
+
+.erro:empty{
+    display: none; /*Sem texto de erro, o span não ocupa espaço*/
+}
+
+.botao{
+    width: 100%;
+    margin-top: 26px;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--creme);
+    background-color: var(--vinho-escuro);
+    border: 2px solid var(--vinho-escuro);
+    border-radius: 5px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover{
+    background-color: var(--vinho-medio);
+    border-color: var(--vinho-medio);
+}
+
+.botao:disabled{
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.mensagem{
+    display: none; /*Só aparece quando o JS coloca a classe sucesso ou falha*/
+    margin-top: 16px;
+    font-size: 15px;
+    background-color: var(--bege);
+    border-radius: 5px;
+    padding: 10px 14px;
+}
+
+.mensagem.sucesso{
+    display: block;
+    border-left: 4px solid var(--caramelo);
+}
+
+.mensagem.falha{
+    display: block;
+    border-left: 4px solid var(--vinho-medio);
+}
+
+.troca{
+    text-align: center;
+    color: var(--texto-dois);
+    margin-top: 24px;
+    margin-bottom: 0;
+}
+
+.troca a{
+    color: var(--vinho-escuro);
+    font-weight: 600;
+    white-space: nowrap; /*Não deixa o "Cadastre-se" quebrar no hífen*/
+}
