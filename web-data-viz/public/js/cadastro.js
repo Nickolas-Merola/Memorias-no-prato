@@ -14,6 +14,11 @@ function mostrarErro(idCampo, texto){
     }
 }
 
+function mostrarMensagem(texto, tipo) {
+    mensagem.textContent = texto;
+    mensagem.className = "mensagem " + tipo;
+}
+
 function validarCadastro() {
     let campos = [
     {id:"nome",texto: "seu nome"},
@@ -100,7 +105,35 @@ function validarCadastro() {
 formulario.addEventListener("submit", function (evento) {
     evento.preventDefault() // cancela o envio padrão do formulário (que recarrega a página) para o JS validar e enviar com fetch
     if (!validarCadastro()) {
-    return;
+        return;
     }
+
+    botaoCadastro.disabled = true
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ 
+                nomeServer: document.getElementById("nome").value.trim(),
+                emailServer: document.getElementById("email").value.trim(),
+                senhaServer: document.getElementById("senha").value
+            })
+        })
+        .then(function (resposta) {
+            if(resposta.ok){
+                mostrarMensagem("sucesso","Sucesso")
+                setTimeout(1500)
+                window.location = "entrar.html"
+            } else{
+                resposta.text().then(function (texto) {
+                    mostrarMensagem("Email já foi cadastrado!","falha")
+                    botaoCadastro.disabled = false
+                })
+            }
+        })
+        .catch(function (erro) {
+            console.log("Erro:", erro);
+            mostrarMensagem("Não foi possível conectar ao servidor.", "falha")
+            botaoCadastro.disabled = false
+        });
 }); 
 
