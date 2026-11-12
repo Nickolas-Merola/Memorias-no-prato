@@ -120,12 +120,13 @@ formulario.addEventListener("submit", function (evento) {
         })
         .then(function (resposta) {
             if(resposta.ok){
-                mostrarMensagem("sucesso","Sucesso")
-                setTimeout(1500)
-                window.location = "entrar.html"
+                mostrarMensagem("Cadastro realizado! Indo para o login...", "sucesso")
+                setTimeout(function () {
+                    window.location = "entrar.html";
+                }, 1500);
             } else{
                 resposta.text().then(function (texto) {
-                    mostrarMensagem("Email já foi cadastrado!","falha")
+                    mostrarMensagem(texto,"falha")
                     botaoCadastro.disabled = false
                 })
             }
