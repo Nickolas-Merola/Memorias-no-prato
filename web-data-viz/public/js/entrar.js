@@ -43,17 +43,6 @@ function validarLogin(){
     let email = document.getElementById("email").value.trim();
     let senha = document.getElementById("senha").value;
 
-    for (let i = 0; i < numeros.length; i++) {
-        if(senha.includes(numeros[i])){
-            temNumero = true
-        }
-    }
-    for (let i = 0; i < especial.length; i++) {
-        if(senha.includes(especial[i])){
-            temEspecial = true
-        }
-    }
-
     if(!email.includes("@")){
         mostrarErro("email", "O email precisa ter @!");
         valido = false;
@@ -66,7 +55,7 @@ formulario.addEventListener("submit", function (evento) {
     if (!validarLogin()) {
         return;
     }
-    botaoCadastro.disabled = true
+    botaoEntrar.disabled = true
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -79,25 +68,26 @@ formulario.addEventListener("submit", function (evento) {
         .then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (usuario) {
-                    let usuario = {id:1, email:"",nome:""}
                     sessionStorage.ID_USUARIO = usuario.id;
                     sessionStorage.NOME_USUARIO = usuario.nome;
-                    mostrarMensagem("Olá "+nome+" o seu login foi um sucesso!","sucesso")
+                    sessionStorage.AUTORIZADO = usuario.autorizado;
+                    mostrarMensagem("Olá "+usuario.nome+" o seu login foi um sucesso!","sucesso")
                     setTimeout(function(){
-                        if(email=="pessoaespecifica1" || email=="pessoaespecifica1"){
-                            window.location = "indexLogin.html"
-                        }else{
-                            window.location = "dashboard.html"
+                        if (usuario.autorizado == 1) {
+                            window.location = "indexLogin.html";
+                        } else {
+                            window.location = "dashboard.html";
                         }
-                    })
+                    }, 1000)
                 });
             } else {
-                // igual ao cadastro: resposta.text(), mostrar o texto e destravar o botão
+                mostrarMensagem(texto, "falha")
+                botaoEntrar.disabled = false
             }
         })
         .catch(function (erro) {
             console.log("Erro:", erro);
             mostrarMensagem("Não foi possível conectar ao servidor.", "falha")
-            botaoCadastro.disabled = false
+            botaoEntrar.disabled = false
         });
 }); 
