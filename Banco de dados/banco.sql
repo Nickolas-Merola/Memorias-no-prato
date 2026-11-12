@@ -61,7 +61,8 @@ CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50),
     email VARCHAR(50) UNIQUE,                      
-    senha VARCHAR(255),                             
+    senha VARCHAR(255),               
+    autorizado BOOLEAN DEFAULT FALSE,              
     CONSTRAINT chkEmail CHECK (email LIKE '%@%')
 );
 
