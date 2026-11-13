@@ -17,6 +17,7 @@ var app = express();
 
 var pratosRouter = require("./src/routes/pratos")
 var usuarioRouter = require("./src/routes/usuarios");
+var pessoasRouter = require("./src/routes/pessoas");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ app.use(cors());
 
 app.use("/pratos", pratosRouter);
 app.use("/usuarios", usuarioRouter);
+app.use("/pessoas", pessoasRouter); 
 
 app.listen(PORTA_APP, function () {
     console.log(`

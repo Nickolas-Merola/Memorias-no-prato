@@ -10,6 +10,16 @@ function listar() {
         return database.executar(instrucaoSql);
 }
 
+function cadastrar(nome, email, senha, fkEmpresa) {
+
+    var instrucaoSql = `
+        INSERT INTO prato (nome, email, senha) VALUES (?,?,?);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql,[nome,email,senha]);
+}
+
 module.exports = {
-    listar
+    listar,
+    cadastrar
 }
