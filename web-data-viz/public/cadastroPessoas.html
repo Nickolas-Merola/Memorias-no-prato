@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pessoa · Memória no Prato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleentrar.css">
+    <link rel="stylesheet" href="css/stylecadastros.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="js/sessao.js"></script>
+    <script>verificarAutorizacao()</script>
+</head>
+<body>
+    <header class="topo">
+        <a href="indexlogin.html" class="logo">Memória no Prato</a>
+        <nav class="botoes">
+            <a href="sobremim.html">Sobre Mim</a>
+            <a href="pratos.html">Pratos</a>
+            <a href="pessoas.html">Pessoas</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="cadastroPratos.html">Cadastrar Prato</a>
+            <a class="ativo" href="cadastroPessoas.html">Cadastrar Pessoa</a>
+            <a href="#" class="entrar" onclick="sair()">Sair</a>
+            <span id="usuarioLogado"></span>
+        </nav>
+    </header>
+    <main class="area-formulario">
+        <section class="cartao formulario">
+            <h1>Cadastrar pessoa</h1>
+            <p class="subtitulo">Uma pessoa importante na minha história, que depois pode ser ligada aos pratos.</p>
+
+            <!-- novalidate desliga a validação automática do navegador: quem valida é o cadastroPessoas.js -->
+            <form id="form_pessoa" novalidate>
+                <div class="campo">
+                    <label for="apelido">Apelido</label>
+                    <input type="text" id="apelido" maxlength="50" placeholder="Ex.: Vó">
+                    <span class="dica">Use só o apelido, sem o nome completo da pessoa.</span>
+                    <span class="erro" id="erro_apelido"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="relacao">Relação comigo</label>
+                    <input type="text" id="relacao" maxlength="50" placeholder="Ex.: Quem me ensinou a cozinhar">
+                    <span class="erro" id="erro_relacao"></span>
+                </div>
+
+                <button type="submit" class="botao" id="botao_cadastrar">Cadastrar pessoa</button>
+                <div class="mensagem" id="mensagem"></div>
+            </form>
+
+            <p class="troca"><a href="indexlogin.html">&larr; Voltar para o início</a></p>
+        </section>
+    </main>
+    <script>logado();</script>
+    <script src="js/cadastroPessoas.js"></script>
+</body>
+</html>

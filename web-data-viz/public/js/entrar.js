@@ -72,7 +72,7 @@ formulario.addEventListener("submit", function (evento) {
                     sessionStorage.AUTORIZADO = usuario.autorizado;
                     mostrarMensagem("Olá "+usuario.nome+" o seu login foi um sucesso!","sucesso")
                     setTimeout(function(){
-                        if (usuario.autorizado == 1) {
+                        if (usuario.autorizado == "1") {
                             window.location = "indexlogin.html";
                         } else {
                             window.location = "dashboard.html";

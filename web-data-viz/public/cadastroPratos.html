@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Prato · Memória no Prato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleentrar.css">
+    <link rel="stylesheet" href="css/stylecadastros.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="js/sessao.js"></script>
+    <script>verificarAutorizacao()</script>
+</head>
+<body>
+    <header class="topo">
+        <a href="indexlogin.html" class="logo">Memória no Prato</a>
+        <nav class="botoes">
+            <a href="sobremim.html">Sobre Mim</a>
+            <a href="pratos.html">Pratos</a>
+            <a href="pessoas.html">Pessoas</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a class="ativo" href="cadastroPratos.html">Cadastrar Prato</a>
+            <a href="cadastroPessoas.html">Cadastrar Pessoa</a>
+            <a href="#" class="entrar" onclick="sair()">Sair</a>
+            <span id="usuarioLogado"></span>
+        </nav>
+    </header>
+    <main class="area-formulario">
+        <section class="cartao formulario largo">
+            <h1>Cadastrar prato</h1>
+            <p class="subtitulo">Um prato que faz parte da minha vida.</p>
+
+            <!-- novalidate desliga a validação automática do navegador: quem valida é o cadastroPratos.js -->
+            <form id="form_prato" novalidate>
+                <div class="campo">
+                    <label for="nome">Nome do prato</label>
+                    <input type="text" id="nome" maxlength="50" placeholder="Ex.: Picanha na brasa">
+                    <span class="erro" id="erro_nome"></span>
+                </div>
+
+                <!-- As opções dos três selects vêm do banco, colocadas pelo cadastroPratos.js -->
+                <div class="dupla">
+                    <div class="campo">
+                        <label for="categoria">Categoria</label>
+                        <select id="categoria">
+                            <option value="">Carregando...</option>
+                        </select>
+                        <span class="erro" id="erro_categoria"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="origem">Origem</label>
+                        <select id="origem">
+                            <option value="">Carregando...</option>
+                        </select>
+                        <span class="erro" id="erro_origem"></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="pessoa">Pessoa ligada ao prato</label>
+                    <select id="pessoa">
+                        <option value="">Nenhuma pessoa</option>
+                    </select>
+                    <span class="dica">Opcional. Quem me ensinou ou divide este prato comigo.</span>
+                </div>
+
+                <div class="dupla">
+                    <div class="campo">
+                        <label for="dificuldade">Dificuldade</label>
+                        <select id="dificuldade">
+                            <option value="">Selecione</option>
+                            <option value="1">1 - Muito fácil</option>
+                            <option value="2">2 - Fácil</option>
+                            <option value="3">3 - Médio</option>
+                            <option value="4">4 - Difícil</option>
+                            <option value="5">5 - Muito difícil</option>
+                        </select>
+                        <span class="erro" id="erro_dificuldade"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nota">Nota pessoal</label>
+                        <select id="nota">
+                            <option value="">Selecione</option>
+                            <option value="1">★☆☆☆☆</option>
+                            <option value="2">★★☆☆☆</option>
+                            <option value="3">★★★☆☆</option>
+                            <option value="4">★★★★☆</option>
+                            <option value="5">★★★★★</option>
+                        </select>
+                        <span class="erro" id="erro_nota"></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="tempo">Tempo de preparo</label>
+                    <input type="number" id="tempo" min="1" placeholder="Em minutos">
+                    <span class="erro" id="erro_tempo"></span>
+                </div>
+
+                <button type="submit" class="botao" id="botao_cadastrar">Cadastrar prato</button>
+                <div class="mensagem" id="mensagem"></div>
+            </form>
+
+            <p class="troca"><a href="indexlogin.html">&larr; Voltar para o início</a></p>
+        </section>
+    </main>
+    <script>logado();</script>
+    <script src="js/cadastroPratos.js"></script>
+</body>
+</html>

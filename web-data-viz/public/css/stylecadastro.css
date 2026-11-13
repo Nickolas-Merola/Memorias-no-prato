@@ -1,0 +1,35 @@
+.formulario.largo{
+    max-width: 560px; /*O cadastro de prato tem mais campos, então o cartão é um pouco mais largo*/
+}
+
+.campo select{
+    font-family: inherit; /*Select também não herda a fonte sozinho*/
+    font-size: 16px;
+    color: var(--texto);
+    background-color: var(--creme);
+    border: 1px solid var(--bege);
+    border-radius: 5px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo select:focus{
+    outline: none;
+    border-color: var(--caramelo);
+    box-shadow: 0 0 0 3px rgba(200, 150, 62, 0.25); /*Mesmo efeito do input no foco*/
+}
+
+.campo select.invalido{
+    border-color: var(--vinho-medio);
+}
+
+.dupla{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*Dois campos lado a lado*/
+    gap: 16px;
+}
+
+.troca a{
+    text-decoration: none;
+}
