@@ -41,7 +41,6 @@ function validarLogin(){
     }
     
     let email = document.getElementById("email").value.trim();
-    let senha = document.getElementById("senha").value;
 
     if(!email.includes("@")){
         mostrarErro("email", "O email precisa ter @!");
@@ -81,8 +80,10 @@ formulario.addEventListener("submit", function (evento) {
                     }, 1000)
                 });
             } else {
-                mostrarMensagem(texto, "falha")
-                botaoEntrar.disabled = false
+                resposta.text().then(function (texto) {
+                    mostrarMensagem(texto, "falha");
+                    botaoEntrar.disabled = false;
+                });
             }
         })
         .catch(function (erro) {
