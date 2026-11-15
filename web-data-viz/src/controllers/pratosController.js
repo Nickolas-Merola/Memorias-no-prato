@@ -10,6 +10,29 @@ function listar(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+
+function listarCategorias(req, res) {
+    pratosModel.listarCategorias().then(function (resultado) {
+        res.status(200).json(resultado);
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as categorias: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function listarOrigens(req, res) {
+    pratosModel.listarOrigens().then(function (resultado) {
+        res.status(200).json(resultado);
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as origens: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
-    listar
+    listar,
+    listarOrigens,
+    listarCategorias
 }

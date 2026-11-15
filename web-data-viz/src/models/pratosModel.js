@@ -19,7 +19,25 @@ function cadastrar(nome, email, senha, fkEmpresa) {
     return database.executar(instrucaoSql,[nome,email,senha]);
 }
 
+function listarCategorias() {
+    var instrucaoSql = `
+    SELECT idCategoria AS id, nome FROM categoria ORDER BY nome
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function listarOrigens() {
+    var instrucaoSql = `
+    SELECT idOrigem AS id, nome FROM origem ORDER BY nome
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listar,
+    listarCategorias,
+    listarOrigens,
     cadastrar
 }

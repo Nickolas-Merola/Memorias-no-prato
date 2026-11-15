@@ -7,4 +7,12 @@ router.get("/listar", function (req, res) {
     pratosController.listar(req, res);
 });
 
+router.get("/categorias", function (req, res) {
+    pratosController.listarCategorias(req, res);
+});
+
+router.get("/origens", function (req, res) {
+    pratosController.listarOrigens(req, res);
+});
+
 module.exports = router

@@ -8,6 +8,15 @@ function cadastrar(apelido, relacao) {
     return database.executar(instrucaoSql, [apelido, relacao]);
 }
 
+function listar() {
+    var instrucaoSql = `
+    SELECT idPessoa AS id, Apelido AS apelido, relacao ORDER BY Apelido
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    listar
 };
