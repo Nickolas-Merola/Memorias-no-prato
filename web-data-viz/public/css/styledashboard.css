@@ -1,0 +1,61 @@
+.kpis{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 24px;
+    padding-bottom: 0px;
+}
+
+.kpi{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--creme-claro);
+    border: 1px solid var(--bege);
+    border-left: 4px solid var(--caramelo);
+    border-radius: 10px;
+    padding: 18px 22px;
+}
+
+.kpi-numero{
+    font-family: Lora, serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--vinho-medio);
+    line-height: 1.1;
+}
+
+.kpi-rotulo{
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.kpi-legenda{
+    font-size: 14px;
+    color: var(--texto-dois);
+}
+
+.graficos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.painel-sub{
+    font-size: 14px;
+    color: var(--texto-dois);
+    margin: 4px 0 16px 0;
+}
+
+.grafico{
+    position: relative; 
+    height: 280px;
+}
+
+@media (max-width: 900px){
+    .kpis{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .graficos{
+        grid-template-columns: 1fr;
+    }
+}

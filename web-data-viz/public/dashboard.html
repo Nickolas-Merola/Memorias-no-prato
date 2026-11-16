@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard · Memória no Prato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styledashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/sessao.js"></script>
+</head>
+<body>
+    <header class="topo">
+        <a href="index.html" class="logo">Memória no Prato</a>
+        <nav class="botoes">
+            <a href="index.html">Início</a>
+            <a href="sobremim.html">Sobre Mim</a>
+            <a href="pratos.html">Pratos</a>
+            <a href="pessoas.html">Pessoas</a>
+            <a class="ativo" href="dashboard.html">Dashboard</a>
+            <a class="entrar" href="entrar.html">Entrar</a>
+            <span id="usuarioLogado"></span>
+        </nav>
+    </header>
+    <main>
+        <section class="apresentacao sessao">
+            <h1>Dashboard</h1>
+            <p>O que eu cozinho, com o quê, com quem e desde quando.</p>
+        </section>
+
+        <!-- Os números dos KPIs são colocados pelo dashboard.js -->
+        <section class="kpis sessao">
+            <article class="kpi">
+                <span class="kpi-numero" id="kpi_pratos">-</span>
+                <span class="kpi-rotulo">pratos cadastrados</span>
+                <span class="kpi-legenda">na minha história</span>
+            </article>
+            <article class="kpi">
+                <span class="kpi-numero" id="kpi_nota">-</span>
+                <span class="kpi-rotulo">nota média</span>
+                <span class="kpi-legenda">de 1 a 5 estrelas</span>
+            </article>
+            <article class="kpi">
+                <span class="kpi-numero" id="kpi_memorias">-</span>
+                <span class="kpi-rotulo">memórias</span>
+                <span class="kpi-legenda">guardadas em cada prato</span>
+            </article>
+            <article class="kpi">
+                <span class="kpi-numero" id="kpi_pessoas">-</span>
+                <span class="kpi-rotulo">pessoas</span>
+                <span class="kpi-legenda">que cozinharam comigo</span>
+            </article>
+        </section>
+
+        <section class="graficos sessao">
+            <article class="cartao painel">
+                <h2>Pratos por categoria</h2>
+                <p class="painel-sub">Quantos pratos tenho em cada tipo de comida</p>
+                <div class="grafico">
+                    <canvas id="grafico_categorias"></canvas>
+                </div>
+            </article>
+
+            <article class="cartao painel">
+                <h2>Ingredientes mais usados</h2>
+                <p class="painel-sub">Em quantos pratos cada um aparece (sem temperos e óleo)</p>
+                <div class="grafico">
+                    <canvas id="grafico_ingredientes"></canvas>
+                </div>
+            </article>
+
+            <article class="cartao painel">
+                <h2>Quem está nas minhas memórias</h2>
+                <p class="painel-sub">Memórias ligadas aos pratos de cada pessoa</p>
+                <div class="grafico">
+                    <canvas id="grafico_pessoas"></canvas>
+                </div>
+            </article>
+
+            <article class="cartao painel">
+                <h2>Minha trajetória em memórias</h2>
+                <p class="painel-sub">Total acumulado de memórias ao longo dos anos</p>
+                <div class="grafico">
+                    <canvas id="grafico_trajetoria"></canvas>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script>logado();</script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
