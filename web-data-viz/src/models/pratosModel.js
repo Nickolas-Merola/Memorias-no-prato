@@ -10,15 +10,6 @@ function listar() {
         return database.executar(instrucaoSql);
 }
 
-function cadastrar(nome, email, senha, fkEmpresa) {
-
-    var instrucaoSql = `
-        INSERT INTO prato (nome, email, senha) VALUES (?,?,?);
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql,[nome,email,senha]);
-}
-
 function listarCategorias() {
     var instrucaoSql = `
     SELECT idCategoria AS id, nome FROM categoria ORDER BY nome
@@ -33,6 +24,15 @@ function listarOrigens() {
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+}
+
+function cadastrar(nome, categoria, origem, pessoa, dificuldade, tempo, nota) {
+    var instrucaoSql = `
+        INSERT INTO prato (nome, fkCategoria, fkOrigem, fkPessoa, dificuldade, tempoPreparo, notaPessoal)
+        VALUES (?, ?, ?, ?, ?, ?, ?);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql, [nome, categoria, origem, pessoa, dificuldade, tempo, nota]);
 }
 
 module.exports = {

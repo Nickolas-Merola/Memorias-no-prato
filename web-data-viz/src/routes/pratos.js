@@ -15,4 +15,8 @@ router.get("/origens", function (req, res) {
     pratosController.listarOrigens(req, res);
 });
 
+router.post("/cadastrar", function (req, res) {
+    pratosController.cadastrar(req, res);
+});
+
 module.exports = router

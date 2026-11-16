@@ -10,7 +10,7 @@ function cadastrar(apelido, relacao) {
 
 function listar() {
     var instrucaoSql = `
-    SELECT idPessoa AS id, Apelido AS apelido, relacao ORDER BY Apelido
+    SELECT idPessoa AS id, Apelido AS apelido, relacao FROM pessoa ORDER BY Apelido
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
