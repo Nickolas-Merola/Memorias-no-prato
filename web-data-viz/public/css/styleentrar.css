@@ -1,14 +1,12 @@
-/* Estilo das telas de login (entrar.html) e cadastro (cadastro.html) */
-
 .area-formulario{
     display: flex;
-    justify-content: center; /*Centraliza o cartão na horizontal*/
+    justify-content: center; /*Centraliza o cartão*/
     padding: 56px 40px;
 }
 
 .formulario{
     width: 100%;
-    max-width: 440px; /*O cartão cresce até 440px e não passa disso*/
+    max-width: 440px;
     padding: 32px;
 }
 
@@ -19,7 +17,7 @@
 
 .campo{
     display: flex;
-    flex-direction: column; /*Coloca label, input e mensagens um embaixo do outro*/
+    flex-direction: column;
     gap: 6px;
     margin-top: 18px;
 }
@@ -29,7 +27,7 @@
 }
 
 .campo input{
-    font-family: inherit; /*Input não herda a fonte sozinho, por isso o inherit*/
+    font-family: inherit; /*herdar o valor calculado da propriedade do seu elemento pai*/
     font-size: 16px;
     color: var(--texto);
     background-color: var(--creme);
@@ -60,7 +58,7 @@
 }
 
 .erro:empty{
-    display: none; /*Sem texto de erro, o span não ocupa espaço*/
+    display: none;
 }
 
 .botao{
