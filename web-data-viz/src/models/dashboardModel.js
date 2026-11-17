@@ -39,11 +39,11 @@ function ingredientesMaisUsados() {
 
 function memoriasPorPessoa() {
     var instrucaoSql = `
-        SELECT COALESCE(pe.Apelido, 'Sem pessoa') AS pessoa, COUNT(m.idMemoria) AS total
+        SELECT pe.Apelido AS pessoa, COUNT(m.idMemoria) AS total
         FROM memoria AS m
         JOIN prato AS p ON m.fkPrato = p.idPrato
         LEFT JOIN pessoa AS pe ON p.fkPessoa = pe.idPessoa
-        GROUP BY pessoa
+        GROUP BY pe.Apelido
         ORDER BY total DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
