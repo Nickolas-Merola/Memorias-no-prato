@@ -18,6 +18,7 @@ var app = express();
 var pratosRouter = require("./src/routes/pratos")
 var usuarioRouter = require("./src/routes/usuarios");
 var pessoasRouter = require("./src/routes/pessoas");
+var dashboardRouter = require("./src/routes/dashboard");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +29,7 @@ app.use(cors());
 app.use("/pratos", pratosRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/pessoas", pessoasRouter); 
+app.use("/dashboard", dashboardRouter); 
 
 app.listen(PORTA_APP, function () {
     console.log(`

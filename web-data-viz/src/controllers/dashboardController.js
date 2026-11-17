@@ -1,7 +1,7 @@
 var dashboardModel = require("../models/dashboardModel");
 
 function buscarKpis(req, res) {
-    dashboardModel.listar().then(function (resultado) {
+    dashboardModel.buscarKpis().then(function (resultado) {
         res.status(200).json(resultado);
     }).catch(function (erro) {
         console.log(erro);
@@ -11,7 +11,7 @@ function buscarKpis(req, res) {
 }
 
 function pratosPorCategoria(req, res) {
-    dashboardModel.listar().then(function (resultado) {
+    dashboardModel.pratosPorCategoria().then(function (resultado) {
         res.status(200).json(resultado);
     }).catch(function (erro) {
         console.log(erro);
@@ -21,7 +21,7 @@ function pratosPorCategoria(req, res) {
 }
 
 function ingredientesMaisUsados(req, res) {
-    dashboardModel.listar().then(function (resultado) {
+    dashboardModel.ingredientesMaisUsados().then(function (resultado) {
         res.status(200).json(resultado);
     }).catch(function (erro) {
         console.log(erro);
@@ -31,7 +31,7 @@ function ingredientesMaisUsados(req, res) {
 }
 
 function memoriasPorPessoa(req, res) {
-    dashboardModel.listar().then(function (resultado) {
+    dashboardModel.memoriasPorPessoa().then(function (resultado) {
         res.status(200).json(resultado);
     }).catch(function (erro) {
         console.log(erro);
@@ -41,7 +41,7 @@ function memoriasPorPessoa(req, res) {
 }
 
 function memoriasPorAno(req, res) {
-    dashboardModel.listar().then(function (resultado) {
+    dashboardModel.memoriasPorAno().then(function (resultado) {
         res.status(200).json(resultado);
     }).catch(function (erro) {
         console.log(erro);
