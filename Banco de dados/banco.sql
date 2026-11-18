@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS memorias;
 CREATE DATABASE memorias;
 USE memorias;
 
@@ -263,8 +264,8 @@ FROM (
 JOIN prato p ON p.nome = v.prato;
 
 -- 7) Usuário de teste para login (senha em texto puro só para teste)
-INSERT INTO usuario (nome, email, senha) VALUES
-('Usuário Teste', 'teste@teste.com', 'teste123');
+INSERT INTO usuario (nome, email, senha,autorizado) VALUES
+('Usuário Teste', 'teste@teste.com', 'teste123',true);
 
 -- 8) Conferir
 SELECT 'categoria' AS tabela, COUNT(*) AS total FROM categoria
