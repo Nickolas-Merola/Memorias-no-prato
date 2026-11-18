@@ -43,7 +43,6 @@ CREATE TABLE ingrediente (
 CREATE TABLE prato_ingrediente (
     fkPrato INT,
     fkIngrediente INT,
-    quantidade INT,
     PRIMARY KEY(fkPrato, fkIngrediente),           
     FOREIGN KEY (fkPrato) REFERENCES prato(idPrato),
     FOREIGN KEY (fkIngrediente) REFERENCES ingrediente(idIngrediente)
