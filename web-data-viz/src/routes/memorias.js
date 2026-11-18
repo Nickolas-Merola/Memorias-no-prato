@@ -3,8 +3,8 @@ var router = express.Router();
 
 var memoriasController = require("../controllers/memoriasController");
 
-router.get("/listarMemorias", function (req, res) {
-    memoriasController.buscarKpis(req, res);
+router.get("/listar", function (req, res) {
+    memoriasController.listar(req, res);
 });
 
 module.exports = router

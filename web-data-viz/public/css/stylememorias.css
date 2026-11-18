@@ -1,0 +1,29 @@
+.memoria {
+    display: flex; 
+    flex-direction: column;
+    gap: 8px;
+    background-color: var(--creme-claro);
+    border: 1px solid var(--bege);
+    border-left: 4px solid var(--caramelo); 
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+
+.memoria-ano {
+    font-family: Lora, serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--vinho-medio);
+    line-height: 1;
+}
+
+.memoria-descricao {
+    margin: 0;
+    font-size: 14px;
+    color: var(--texto-dois);
+    flex-grow: 1; /* empurra o chip do prato para o fim do cartão, assim fica tudo alinhados */
+}
+
+.memoria .chip {
+    align-self: flex-start; /* sem isso a div estica na largura toda do cartão */
+}
