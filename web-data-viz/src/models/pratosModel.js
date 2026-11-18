@@ -35,9 +35,21 @@ function cadastrar(nome, categoria, origem, pessoa, dificuldade, tempo, nota) {
     return database.executar(instrucaoSql, [nome, categoria, origem, pessoa, dificuldade, tempo, nota]);
 }
 
+function listarIngredientes() {
+    var instrucaoSql = `
+        SELECT pi.fkPrato AS idPrato, i.nome AS ingrediente
+        FROM prato_ingrediente AS pi
+        JOIN ingrediente AS i ON pi.fkIngrediente = i.idIngrediente
+        ORDER BY i.nome;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listar,
     listarCategorias,
     listarOrigens,
-    cadastrar
+    cadastrar,
+    listarIngredientes
 }

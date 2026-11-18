@@ -36,3 +36,10 @@
     font-size: 14px;
     color: var(--texto-dois);
 }
+.prato-ingredientes {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--bege);
+    font-size: 13px;
+    color: var(--texto-dois);
+}

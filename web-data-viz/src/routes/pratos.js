@@ -19,4 +19,8 @@ router.post("/cadastrar", function (req, res) {
     pratosController.cadastrar(req, res);
 });
 
+router.get("/ingredientes", function (req, res) {
+    pratosController.listarIngredientes(req, res);
+});
+
 module.exports = router
