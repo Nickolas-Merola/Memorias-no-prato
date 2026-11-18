@@ -1,0 +1,31 @@
+.pessoa {
+    display: flex; 
+    align-items: center;
+    gap: 18px;
+    background-color: var(--creme-claro);
+    border: 1px solid var(--bege);
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+
+.pessoa-inicial {
+    flex-shrink: 0; /* não deixa o círculo amassar quando o texto é grande */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    background-color: var(--vinho-escuro);
+    border: 2px solid var(--caramelo);
+    color: var(--creme);
+    font-family: Lora, serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pessoa-relacao {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: var(--texto-dois);
+}
