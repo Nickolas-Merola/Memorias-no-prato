@@ -129,8 +129,8 @@ JOIN origem o ON o.nome = v.ori
 LEFT JOIN pessoa pe ON pe.Apelido = v.pes;
 
 -- 5) Ingredientes de cada prato (quantidade: número livre, sem unidade)
-INSERT INTO prato_ingrediente (fkPrato, fkIngrediente, quantidade)
-SELECT p.idPrato, i.idIngrediente, v.qtd
+INSERT INTO prato_ingrediente (fkPrato, fkIngrediente)
+SELECT p.idPrato, i.idIngrediente
 FROM (
     SELECT 'Arroz e feijão' AS prato, 'Arroz' AS ing, 200 AS qtd
     UNION ALL SELECT 'Arroz e feijão', 'Feijão', 150
