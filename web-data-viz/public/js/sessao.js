@@ -19,6 +19,7 @@ function trocarEntrar() {
 
     if (sessionStorage.ID_USUARIO != undefined) {
         botaoEntrar.innerHTML = "Sair";
+        botaoEntrar.href = "index.html";
         botaoEntrar.onclick = sair;
     }
 }
@@ -36,6 +37,6 @@ function logado() {
     }
 
     if (nome) {
-        usuarioLogado.innerHTML = "Olá, " + nome;
+        usuarioLogado.textContent  = "Olá, " + nome;
     }
 }
