@@ -29,6 +29,34 @@ function carregarSelect(idSelect, url, campoTexto, primeiraOpcao) {
         })
 }
 
+carregarIngredientes()
+
+function carregarIngredientes() {
+    let listaIngredientes = document.getElementById("lista_ingredientes")
+
+    fetch("/pratos/todosIngredientes")
+        .then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (lista) {
+                    let html = ``
+                    for (let i = 0; i < lista.length; i++) {
+                        html += `<label>
+                                    <input type="checkbox" value="${lista[i].id}">
+                                    ${lista[i].nome}
+                                 </label>`
+                    }
+                    listaIngredientes.innerHTML = html
+                })
+            } else {
+                listaIngredientes.innerHTML = "Não foi possível carregar os ingredientes."
+            }
+        })
+        .catch(function (erro) {
+            console.log(erro)
+            listaIngredientes.innerHTML = "Não foi possível carregar os ingredientes."
+        })
+}
+
 function mostrarErro(idCampo, texto) {
     let spanErro = document.getElementById("erro_" + idCampo)
     spanErro.textContent = texto

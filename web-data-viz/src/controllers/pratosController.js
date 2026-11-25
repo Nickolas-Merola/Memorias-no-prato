@@ -42,6 +42,16 @@ function listarOrigens(req, res) {
     });
 }
 
+function listarTodosIngredientes(req, res) {
+    pratosModel.listarTodosIngredientes().then(function (resultado) {
+        res.status(200).json(resultado);
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os ingredientes: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var categoria = req.body.categoriaServer;
@@ -105,5 +115,6 @@ module.exports = {
     listarOrigens,
     listarCategorias,
     cadastrar,
-    listarIngredientes
+    listarIngredientes,
+    listarTodosIngredientes
 }

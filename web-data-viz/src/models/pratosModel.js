@@ -46,10 +46,20 @@ function listarIngredientes() {
     return database.executar(instrucaoSql);
 }
 
+function listarTodosIngredientes(){
+    var instrucaoSql = `
+    SELECT idIngrediente as id, nome FROM ingrediente
+    ORDER BY nome;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listar,
     listarCategorias,
     listarOrigens,
     cadastrar,
-    listarIngredientes
+    listarIngredientes,
+    listarTodosIngredientes
 }

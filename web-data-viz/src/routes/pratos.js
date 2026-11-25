@@ -23,4 +23,8 @@ router.get("/ingredientes", function (req, res) {
     pratosController.listarIngredientes(req, res);
 });
 
+router.get("/todosIngredientes", function (req, res) {
+    pratosController.listarTodosIngredientes(req, res);
+});
+
 module.exports = router
