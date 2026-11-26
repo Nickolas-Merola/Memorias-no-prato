@@ -1,6 +1,7 @@
 let formulario = document.getElementById("form_prato")
 let mensagem = document.getElementById("mensagem")
 let botaoCadastrar = document.getElementById("botao_cadastrar")
+let todosIngredientes = []
 
 carregarSelect("categoria", "/pratos/categorias", "nome", "Selecione")
 carregarSelect("origem", "/pratos/origens", "nome", "Selecione")
@@ -38,10 +39,11 @@ function carregarIngredientes() {
         .then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (lista) {
+                    todosIngredientes = lista
                     let html = ``
                     for (let i = 0; i < lista.length; i++) {
                         html += `<label>
-                                    <input type="checkbox" value="${lista[i].id}">
+                                    <input type="checkbox" id="ingrediente_${lista[i].id}" value="${lista[i].id}">
                                     ${lista[i].nome}
                                  </label>`
                     }
@@ -72,6 +74,18 @@ function mostrarErro(idCampo, texto) {
 function mostrarMensagem(texto, tipo) {
     mensagem.textContent = texto
     mensagem.className = "mensagem " + tipo
+}
+
+// Devolve um vetor com os ids dos ingredientes marcados. Ex.: [3, 7]
+function ingredientesMarcados() {
+    let marcados = []
+    for (let i = 0; i < todosIngredientes.length; i++) {
+        let checkbox = document.getElementById("ingrediente_" + todosIngredientes[i].id)
+        if (checkbox.checked) {
+            marcados.push(todosIngredientes[i].id)
+        }
+    }
+    return marcados
 }
 
 function validarCadastroPrato() {
@@ -122,7 +136,8 @@ formulario.addEventListener("submit", function (evento) {
             dificuldadeServer: document.getElementById("dificuldade").value,
             tempoServer: document.getElementById("tempo").value,
             notaServer: document.getElementById("nota").value,
-            idUsuarioServer: sessionStorage.ID_USUARIO
+            idUsuarioServer: sessionStorage.ID_USUARIO,
+            ingredientesServer: ingredientesMarcados()
         })
     })
         .then(function (resposta) {

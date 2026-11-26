@@ -61,9 +61,14 @@ function cadastrar(req, res) {
     var tempo = Number(req.body.tempoServer);
     var nota = Number(req.body.notaServer);
     var idUsuario = req.body.idUsuarioServer;
+    var ingredientes = req.body.ingredientesServer;
 
     if (pessoa == undefined || pessoa == "") {
         pessoa = null;
+    }
+
+    if (ingredientes == undefined) {
+        ingredientes = [];
     }
 
     if (nome == undefined || nome.trim() == "") {
@@ -91,6 +96,16 @@ function cadastrar(req, res) {
                 } else {
                     pratosModel.cadastrar(nome.trim(), categoria, origem, pessoa, dificuldade, tempo, nota)
                         .then(function (resultado) {
+
+                            var fkPrato = resultado.insertId;
+
+                            for (let i = 0;i < ingredientes.length; i++) {
+                                pratosModel.cadastrarPratoIngrediente(fkPrato,ingredientes[i])
+                                    .catch(function (erro) {
+                                        console.log("Erro ao cadastrar ingrediente do prato: ", erro.sqlMessage);
+                                    });
+                            }
+
                             res.status(201).json(resultado);
                         }).catch(function (erro) {
                             console.log(erro);

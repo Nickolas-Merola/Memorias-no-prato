@@ -55,11 +55,21 @@ function listarTodosIngredientes(){
     return database.executar(instrucaoSql);
 }
 
+function cadastrarPratoIngrediente(fkPrato,fkIngrediente){
+    var instrucaoSql = `
+    INSERT INTO prato_ingrediente (fkPrato, fkIngrediente)
+        VALUES (?, ?);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql,[fkPrato,fkIngrediente]);
+}
+
 module.exports = {
     listar,
     listarCategorias,
     listarOrigens,
     cadastrar,
     listarIngredientes,
-    listarTodosIngredientes
+    listarTodosIngredientes,
+    cadastrarPratoIngrediente
 }
