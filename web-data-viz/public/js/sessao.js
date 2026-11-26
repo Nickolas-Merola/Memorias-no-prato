@@ -9,7 +9,7 @@ function mostrarCadastros() {
     let cadastroPessoas = document.getElementById("cadastroPessoas");
     let cadastroIngrediente = document.getElementById("cadastroIngrediente");
 
-    if (cadastroPratos == null || cadastroPessoas == null) {
+    if (cadastroPratos == null || cadastroPessoas == null || cadastroIngrediente == null) {
         return;
     }
 
