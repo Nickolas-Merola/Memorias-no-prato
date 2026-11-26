@@ -7,6 +7,7 @@ function verificarAutorizacao() {
 function mostrarCadastros() {
     let cadastroPratos = document.getElementById("cadastroPratos");
     let cadastroPessoas = document.getElementById("cadastroPessoas");
+    let cadastroIngrediente = document.getElementById("cadastroIngrediente");
 
     if (cadastroPratos == null || cadastroPessoas == null) {
         return;
@@ -15,6 +16,7 @@ function mostrarCadastros() {
     if (sessionStorage.AUTORIZADO == "1") {
         cadastroPratos.hidden = false;
         cadastroPessoas.hidden = false;
+        cadastroIngrediente.hidden = false;
     }
 }
 

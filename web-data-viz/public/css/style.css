@@ -152,3 +152,7 @@ h3{
 .apresentacao p{
     color: var(--texto-dois);
 }
+
+.botoes a, .botoes span{
+    white-space: nowrap; /* não deixa "Cadastrar Ingrediente" quebrar em duas linhas */
+}

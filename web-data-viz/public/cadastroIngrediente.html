@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Ingrediente · Memória no Prato</title>
+    <link rel="icon" href="assets/icon/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleentrar.css">
+    <link rel="stylesheet" href="css/stylecadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="js/sessao.js"></script>
+    <script>verificarAutorizacao()</script>
+</head>
+<body>
+    <header class="topo">
+        <a href="index.html" class="logo">Memória no Prato</a>
+        <nav class="botoes">
+            <a href="sobremim.html">Sobre Mim</a>
+            <a href="pratos.html">Pratos</a>
+            <a href="pessoas.html">Pessoas</a>
+            <a href="memorias.html">Memórias</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="cadastroPratos.html">Cadastrar Prato</a>
+            <a href="cadastroPessoas.html">Cadastrar Pessoa</a>
+            <a class="ativo" href="cadastroIngrediente.html">Cadastrar Ingrediente</a>
+            <a href="#" class="entrar" onclick="sair()">Sair</a>
+            <span id="usuarioLogado"></span>
+        </nav>
+    </header>
+    <main class="area-formulario">
+        <section class="cartao formulario">
+            <h1>Cadastrar ingrediente</h1>
+            <p class="subtitulo">Um ingrediente que ainda não está na lista, para poder ser marcado no cadastro dos pratos.</p>
+
+            <form id="form_ingrediente" novalidate>
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" maxlength="50" placeholder="Ex.: Mandioca">
+                    <span class="erro" id="erro_nome"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo">
+                        <option value="">Carregando...</option>
+                    </select>
+                    <span class="dica">Temperos e gorduras não entram no gráfico "Ingredientes mais usados".</span>
+                    <span class="erro" id="erro_tipo"></span>
+                </div>
+
+                <button type="submit" class="botao" id="botao_cadastrar">Cadastrar ingrediente</button>
+                <div class="mensagem" id="mensagem"></div>
+            </form>
+
+            <p class="troca"><a href="cadastroPratos.html">&larr; Voltar para o cadastro de prato</a></p>
+        </section>
+    </main>
+    <script>logado();</script>
+    <script src="js/cadastroIngrediente.js"></script>
+</body>
+</html>
