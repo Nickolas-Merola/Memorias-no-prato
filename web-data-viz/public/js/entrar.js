@@ -73,7 +73,7 @@ formulario.addEventListener("submit", function (evento) {
                     mostrarMensagem("Olá "+usuario.nome+" o seu login foi um sucesso!","sucesso")
                     setTimeout(function(){
                         if (usuario.autorizado == "1") {
-                            window.location = "indexlogin.html";
+                            window.location = "index.html";
                         } else {
                             window.location = "dashboard.html";
                         }

@@ -4,6 +4,20 @@ function verificarAutorizacao() {
     }
 }
 
+function mostrarCadastros() {
+    let cadastroPratos = document.getElementById("cadastroPratos");
+    let cadastroPessoas = document.getElementById("cadastroPessoas");
+
+    if (cadastroPratos == null || cadastroPessoas == null) {
+        return;
+    }
+
+    if (sessionStorage.AUTORIZADO == "1") {
+        cadastroPratos.hidden = false;
+        cadastroPessoas.hidden = false;
+    }
+}
+
 function verificarLogin() {
     if (sessionStorage.NOME_USUARIO==undefined) {
         window.location = "entrar.html";

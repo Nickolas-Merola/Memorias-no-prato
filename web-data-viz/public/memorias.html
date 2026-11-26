@@ -21,6 +21,8 @@
             <a href="pessoas.html">Pessoas</a>
             <a class="ativo" href="memorias.html">Memórias</a>
             <a href="dashboard.html">Dashboard</a>
+            <a id="cadastroPratos" href="cadastroPratos.html" hidden>Cadastrar Prato</a>
+            <a id="cadastroPessoas" href="cadastroPessoas.html" hidden>Cadastrar Pessoa</a>
             <a id="botao_entrar" class="entrar" href="entrar.html">Entrar</a>
             <span id="usuarioLogado"></span>
         </nav>
@@ -35,6 +37,6 @@
         </section>
     </main>
     <script src="js/memorias.js"></script>
-    <script>logado(); trocarEntrar();</script>
+    <script>logado(); trocarEntrar(); mostrarCadastros()</script>
 </body>
 </html>
