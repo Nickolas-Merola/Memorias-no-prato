@@ -20,7 +20,7 @@ CREATE TABLE pessoa (
 
 CREATE TABLE prato (
     idPrato INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(50) NOT NULL,
+    nome VARCHAR(50) NOT NULL UNIQUE,
     fkCategoria INT NOT NULL,
     fkOrigem INT NOT NULL,
     fkPessoa INT,

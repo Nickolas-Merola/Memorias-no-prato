@@ -112,6 +112,8 @@ function cadastrar(req, res) {
                             console.log("\nHouve um erro ao cadastrar o prato! Erro: ", erro.sqlMessage);
                             if (erro.code == "ER_NO_REFERENCED_ROW_2") {
                                 res.status(400).send("Categoria, origem ou pessoa não existe no banco!");
+                            } else if(erro.code == "ER_DUP_ENTRY"){
+                                res.status(400).send("Prato já foi cadastrado no banco!");
                             } else {
                                 res.status(500).json(erro.sqlMessage);
                             }
